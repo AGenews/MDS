@@ -19,7 +19,6 @@ args = parser.parse_args()
 inputfile = args.input
 outputfile = args.output
 binwidth = int(args.bin)
-inputfile = '/home/tetrode/prog/motion_analysis/MOTION00.CSV'
 data = np.genfromtxt(inputfile, delimiter=',',skip_header=1)
 timestamps = []
 dtime = []
@@ -34,10 +33,6 @@ for x in range(0,data.shape[0]):
     SS = int(data[x,5])
     ms = int(data[x,6])
     timestamps.append(datetime(YYYY,MM,DD,HH,mm,SS,ms))
-
-#for x in range(0,len(timestamps)-2):
-#    diff = (timestamps[x+1]-timestamps[x]).total_seconds()
-#    dtime.append(diff)
 
 for x in range(0,len(timestamps)):
     abst = ((timestamps[x]-timestamps[0]).total_seconds())#/3600
@@ -64,6 +59,7 @@ for x in range(0,bins.shape[0]):
             index = y
     condata = condata[index:condata.shape[0],:]
     bindata[x,7]=bindata[x,7]/eventcounter
-    bindata[x,0]=bins[x,0]    
+    bindata[x,0]=bins[x,0]  
+    print str( round(((float(bins[x,0])/float(bins.max()))*100),2) )+" %"  
     
 np.savetxt(outputfile, bindata, delimiter=',',fmt='%10.3f')
