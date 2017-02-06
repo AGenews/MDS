@@ -28,6 +28,7 @@
 
 
 #include <SD.h>
+#include <Wire.h>
 #include "RTClib.h"
 
 #define ECHO_TO_SERIAL   1 // echo data to serial port
@@ -53,8 +54,9 @@ int bootup = 0; // a placeholder for the time in milliseconds at bootup
 unsigned int ms = 0;  // a placeholder for the milliseconds between the RTC seconds
 
 
-#RTC_DS1307 RTC; // define the Real Time Clock object
-RTC_PCF8523 RTC;
+//RTC_DS1307 RTC; // define the Real Time Clock object, use the RT which
+RTC_PCF8523 RTC;  // corresponds to the one present on your board
+
 // for the data logging shield, we use digital pin 10 for the SD cs line
 const int chipSelect = 10;
 // the logging file
