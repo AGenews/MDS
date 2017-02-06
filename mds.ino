@@ -87,6 +87,14 @@ void setup() {  // the setup function begins
   }
   // Here we set the clock according to the CPU Time of the programing PC
   RTC.adjust(DateTime(F(__DATE__), F(__TIME__))); 
+  // If this line stays uncommented, the clock will always start from the date and
+  // time when the sketch was compiled. Either you use a dedicated time setting
+  // script, or you simply upload this sketch two times:
+  // (1) once with the time setting line uncommented
+  // (2) and second quickly afterwards with the line commented out
+  // This leaves you with a slight offset, but for behavioral 
+  // stduies, this might be tolerated.
+  
   // immediately afterwards we get the milliseconds since bootup 
   bootup = millis(); 
   
