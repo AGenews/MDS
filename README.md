@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/66943151.svg)](https://zenodo.org/badge/latestdoi/66943151)
+
 # Motion Detector Shield
 A simplified microwave-based motion detector for home cage activity monitoring in mice.
 
