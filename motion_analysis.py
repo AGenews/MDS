@@ -85,6 +85,6 @@ for x in range(0,bins.shape[0]):
     condata = condata[index:condata.shape[0],:]
     bindata[x,7]=bindata[x,7]/eventcounter
     bindata[x,0]=bins[x,0]  
-    print str( round(((float(bins[x,0])/float(bins.max()))*100),2) )+" %"  
+    print (str( round(((float(bins[x,0])/float(bins.max()))*100),2) )+" %")  
     
 np.savetxt(outputfile, bindata, delimiter=',',fmt='%10.3f')
