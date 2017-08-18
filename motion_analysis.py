@@ -56,7 +56,7 @@ for x in range(0,data.shape[0]):
     HH = int(data[x,3])
     mm = int(data[x,4])
     SS = int(data[x,5])
-    ms = int(data[x,6])
+    ms = int(data[x,6])*1000
     timestamps.append(datetime(YYYY,MM,DD,HH,mm,SS,ms))
 
 for x in range(0,len(timestamps)):
