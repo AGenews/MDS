@@ -25,7 +25,7 @@
 #/ DEALINGS IN THE SOFTWARE.                                                  //
 #///////////////////////////////////////////////////////////////////////////////
 
-__author__ = 'Andreas Genewsky (2016)'
+__author__ = 'Andreas Genewsky (2017)'
 import argparse
 import numpy as np
 import matplotlib.mlab as mlab
@@ -35,11 +35,11 @@ import math
 np.seterr(all='ignore')
 
 parser = argparse.ArgumentParser(description="**** Motion Detector Analysis Script ****",
-                                 epilog="<<< Andreas Genewsky (2016) - Max-Planck Institute for Psychiatry >>>")
+                                 epilog="<<< Andreas Genewsky (2017) - Max-Planck Institute for Psychiatry >>>")
                                  
 parser.add_argument('-i','--input', help='Input file name',required=True)
 parser.add_argument('-o','--output',help='Output file name', required=True)
-parser.add_argument('-b','--bin',help='Bin Width in Seconds', required=True)
+parser.add_argument('-b','--bin',help='Bin Width in Milliseconds', required=True)
 args = parser.parse_args()
 inputfile = args.input
 outputfile = args.output
@@ -60,7 +60,7 @@ for x in range(0,data.shape[0]):
     timestamps.append(datetime(YYYY,MM,DD,HH,mm,SS,ms))
 
 for x in range(0,len(timestamps)):
-    abst = ((timestamps[x]-timestamps[0]).total_seconds())#/3600
+    abst = ((timestamps[x]-timestamps[0]).total_seconds())*1000
     abstime.append(abst) 
 
 mod = data[:,7:14]
